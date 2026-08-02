@@ -6,20 +6,23 @@ import { useState } from "react";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
 import { Button } from "./Button";
-
-const navLinks = [
-  { href: "/services", label: "Services" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/industries", label: "Industries" },
-  { href: "/how-it-works", label: "How It Works" },
-  { href: "/about", label: "About" },
-  { href: "/case-studies", label: "Results" },
-  { href: "/faq", label: "FAQ" },
-];
+import { useLanguage } from "@/lib/language-context";
+import { ui } from "@/data/ui-strings";
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const { lang, toggle } = useLanguage();
+
+  const navLinks = [
+    { href: "/services", label: ui.nav.services[lang] },
+    { href: "/pricing", label: ui.nav.pricing[lang] },
+    { href: "/industries", label: ui.nav.industries[lang] },
+    { href: "/how-it-works", label: ui.nav.howItWorks[lang] },
+    { href: "/about", label: ui.nav.about[lang] },
+    { href: "/case-studies", label: ui.nav.results[lang] },
+    { href: "/faq", label: ui.nav.faq[lang] },
+  ];
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-white/90 backdrop-blur">
@@ -45,29 +48,33 @@ export function Header() {
           })}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-3 lg:flex">
+          <LanguageToggle lang={lang} onToggle={toggle} />
           <Button href="/contact" className="text-sm">
-            Book a Call
+            {ui.nav.bookACall[lang]}
           </Button>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded-md text-navy-900 lg:hidden"
-          aria-label="Toggle menu"
-          aria-expanded={open}
-        >
-          {open ? (
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M6 6l12 12M6 18L18 6" strokeLinecap="round" />
-            </svg>
-          ) : (
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
-            </svg>
-          )}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <LanguageToggle lang={lang} onToggle={toggle} />
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="flex h-10 w-10 items-center justify-center rounded-md text-navy-900"
+            aria-label="Toggle menu"
+            aria-expanded={open}
+          >
+            {open ? (
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M6 6l12 12M6 18L18 6" strokeLinecap="round" />
+              </svg>
+            ) : (
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
+              </svg>
+            )}
+          </button>
+        </div>
       </Container>
 
       {open && (
@@ -84,11 +91,32 @@ export function Header() {
               </Link>
             ))}
             <Button href="/contact" className="mt-2 w-full">
-              Book a Call
+              {ui.nav.bookACall[lang]}
             </Button>
           </Container>
         </div>
       )}
     </header>
+  );
+}
+
+function LanguageToggle({
+  lang,
+  onToggle,
+}: {
+  lang: "en" | "es";
+  onToggle: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onToggle}
+      className="flex items-center gap-1 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-navy-900 hover:border-amber-400"
+      aria-label="Toggle language / Cambiar idioma"
+    >
+      <span className={lang === "en" ? "text-navy-900" : "text-muted"}>EN</span>
+      <span className="text-muted">/</span>
+      <span className={lang === "es" ? "text-navy-900" : "text-muted"}>ES</span>
+    </button>
   );
 }

@@ -1,11 +1,13 @@
+type Bilingual = { en: string; es: string };
+
 export type Service = {
   slug: string;
   name: string;
   shortName: string;
-  tagline: string;
-  description: string;
-  features: string[];
-  tierNote?: string;
+  tagline: Bilingual;
+  description: Bilingual;
+  features: Bilingual[];
+  tierNote?: Bilingual;
   metaDescription: string;
 };
 
@@ -14,61 +16,101 @@ export const services: Service[] = [
     slug: "delta-base",
     name: "Delta Base",
     shortName: "Base",
-    tagline: "The foundation every business needs online.",
-    description:
-      "Your website, hosting, Google Business Profile, and the tracking that tells you what's actually working — all built and managed under an account you own.",
+    tagline: {
+      en: "The foundation every business needs online.",
+      es: "La base que todo negocio necesita en línea.",
+    },
+    description: {
+      en: "Your website, hosting, Google Business Profile, and the tracking that tells you what's actually working, all built and managed under an account you own.",
+      es: "Tu sitio web, hospedaje, perfil de Google Business y el seguimiento que te dice qué realmente está funcionando, todo construido y administrado bajo una cuenta que te pertenece.",
+    },
     features: [
-      "Website built and hosted",
-      "Google Business Profile management",
-      "GA4 + Search Console tracking",
-      "Call tracking & recording available as an add-on",
+      { en: "Website built and hosted", es: "Sitio web construido y hospedado" },
+      {
+        en: "Google Business Profile management",
+        es: "Gestión de tu perfil de Google Business",
+      },
+      { en: "GA4 + Search Console tracking", es: "Seguimiento con GA4 + Search Console" },
+      {
+        en: "Call tracking & recording available as an add-on",
+        es: "Rastreo y grabación de llamadas disponible como complemento",
+      },
     ],
     metaDescription:
-      "Website build, hosting, and Google Business Profile management for Tijuana businesses — the foundation of every Delta Solutions partnership.",
+      "Website build, hosting, and Google Business Profile management for Tijuana businesses: the foundation of every Delta Solutions partnership.",
   },
   {
     slug: "delta-radar",
     name: "Delta Radar",
     shortName: "Radar",
-    tagline: "SEO and market intelligence, translated into next steps.",
-    description:
-      "A monthly report on where you rank, what your competitors are doing, and where the real opportunity is — with specific recommendations, not just numbers.",
+    tagline: {
+      en: "SEO and market intelligence, translated into next steps.",
+      es: "SEO e inteligencia de mercado, traducidos en próximos pasos.",
+    },
+    description: {
+      en: "A monthly report on where you rank, what your competitors are doing, and where the real opportunity is, with specific recommendations, not just numbers.",
+      es: "Un reporte mensual sobre dónde te posicionas, qué están haciendo tus competidores y dónde está la oportunidad real, con recomendaciones específicas, no solo números.",
+    },
     features: [
-      "Monthly ranking report",
-      "Competitor tracking",
-      "Opportunity analysis",
-      "Missed-call and conversion pattern insights",
+      { en: "Monthly ranking report", es: "Reporte mensual de posicionamiento" },
+      { en: "Constant SEO improvement", es: "Mejora constante de SEO" },
+      { en: "Competitor tracking", es: "Seguimiento de la competencia" },
+      { en: "Opportunity analysis", es: "Análisis de oportunidades" },
+      {
+        en: "Missed-call and conversion pattern insights",
+        es: "Análisis de llamadas perdidas y patrones de conversión",
+      },
     ],
     metaDescription:
-      "Monthly SEO and competitive intelligence reports for Tijuana businesses — know where you rank and what to do about it.",
+      "Monthly SEO and competitive intelligence reports for Tijuana businesses. Know where you rank and what to do about it.",
   },
   {
     slug: "delta-social",
     name: "Delta Social",
     shortName: "Social",
-    tagline: "Facebook and Instagram, actually managed.",
-    description:
-      "Consistent content that sounds like your business, not a template — posted on a schedule that matches your tier, from stories to full daily posting.",
+    tagline: {
+      en: "Facebook and Instagram, actually managed.",
+      es: "Facebook e Instagram, realmente administrados.",
+    },
+    description: {
+      en: "Consistent content that sounds like your business, not a template, posted on a schedule that matches your tier, from stories to full daily posting.",
+      es: "Contenido consistente que suena como tu negocio, no como una plantilla, publicado con la frecuencia que corresponde a tu plan, desde historias hasta publicaciones diarias.",
+    },
     features: [
-      "Facebook & Instagram content management",
-      "Posting cadence scaled to your tier",
-      "Stories included at the Partner tier",
+      {
+        en: "Facebook & Instagram content management",
+        es: "Gestión de contenido en Facebook e Instagram",
+      },
+      { en: "Google Business Profile posts", es: "Publicaciones en Google Business" },
+      {
+        en: "Posting cadence scaled to your tier",
+        es: "Frecuencia de publicación según tu plan",
+      },
+      { en: "Stories included at the Partner tier", es: "Historias incluidas en el plan Partner" },
     ],
     metaDescription:
-      "Facebook and Instagram management for Tijuana businesses — consistent, on-brand social content without hiring in-house.",
+      "Facebook and Instagram management for Tijuana businesses: consistent, on-brand social content without hiring in-house.",
   },
   {
     slug: "delta-studio",
     name: "Delta Studio",
     shortName: "Studio",
-    tagline: "The design work that makes everything else look sharp.",
-    description:
-      "Posters, flyers, business cards, and branded assets — the everyday design requests that shouldn't need a separate freelancer.",
+    tagline: {
+      en: "The design work that makes everything else look sharp.",
+      es: "El trabajo de diseño que hace que todo lo demás se vea bien.",
+    },
+    description: {
+      en: "Posters, flyers, business cards, and branded assets: the everyday design requests that shouldn't need a separate freelancer.",
+      es: "Carteles, volantes, tarjetas de presentación y material de marca: las solicitudes de diseño del día a día que no deberían requerir un freelancer aparte.",
+    },
     features: [
-      "Posters & flyers",
-      "Business cards",
-      "Basic branded assets",
-      "Unlimited basic requests at the Partner tier",
+      { en: "Posters & flyers", es: "Carteles y volantes" },
+      { en: "Business cards", es: "Tarjetas de presentación" },
+      { en: "Basic branded assets", es: "Material de marca básico" },
+      {
+        en: "Unlimited basic requests at the Partner tier",
+        es: "Solicitudes básicas ilimitadas en el plan Partner",
+      },
     ],
     metaDescription:
       "Posters, flyers, business cards, and branded design assets for Tijuana businesses, included as part of your Delta Solutions plan.",
@@ -77,33 +119,47 @@ export const services: Service[] = [
     slug: "delta-ads",
     name: "Delta Ads",
     shortName: "Ads",
-    tagline: "Paid search, once your foundation earns it.",
-    description:
-      "We recommend building your organic foundation for 90 days before turning on paid ads, so your money isn't wasted on an unproven funnel. Once you're ready, we manage Google Ads and Local Services Ads directly.",
+    tagline: {
+      en: "Paid search, once your foundation earns it.",
+      es: "Búsqueda paga, una vez que tu base lo justifique.",
+    },
+    description: {
+      en: "We recommend building your organic foundation for 90 days before turning on paid ads, so your money isn't wasted on an unproven funnel. Once you're ready, we manage Google Ads and Local Services Ads directly. The ad budget itself is entirely your call: you decide how much to invest, and we run the campaigns against it. Our management fee is separate from your ad spend, so every peso you put toward ads goes toward ads.",
+      es: "Recomendamos construir tu base orgánica durante 90 días antes de activar anuncios pagados, para que tu dinero no se desperdicie en un embudo no comprobado. Cuando estés listo, administramos Google Ads y Local Services Ads directamente. El presupuesto de los anuncios es completamente tu decisión: tú eliges cuánto invertir y nosotros manejamos las campañas con ese monto. Nuestra cuota de gestión es independiente de tu gasto en anuncios, así que cada peso que destines a anuncios se va a anuncios.",
+    },
     features: [
-      "Google Ads management",
-      "Local Services Ads management",
-      "Introduced after your first 90 days",
+      { en: "Google Ads management", es: "Gestión de Google Ads" },
+      { en: "Local Services Ads management", es: "Gestión de Local Services Ads" },
+      { en: "You choose and control your ad budget", es: "Tú eliges y controlas tu presupuesto" },
+      { en: "Introduced after your first 90 days", es: "Se activa después de tus primeros 90 días" },
     ],
     metaDescription:
-      "Google Ads and Local Services Ads management for Tijuana businesses — introduced once your organic foundation is proven.",
+      "Google Ads and Local Services Ads management for Tijuana businesses, introduced once your organic foundation is proven. You control the budget.",
   },
   {
     slug: "delta-labs",
     name: "Delta Labs",
     shortName: "Labs",
-    tagline: "Custom-built software for what off-the-shelf can't do.",
-    description:
-      "CRMs, booking tools, internal dashboards, and business-specific applications — scoped and priced after a conversation, not sold as a package.",
+    tagline: {
+      en: "Custom-built software for what off-the-shelf can't do.",
+      es: "Software a la medida para lo que las soluciones genéricas no pueden hacer.",
+    },
+    description: {
+      en: "CRMs, booking tools, internal dashboards, and business-specific applications, scoped and priced after a conversation, not sold as a package.",
+      es: "CRMs, herramientas de reservas, paneles internos y aplicaciones a la medida de tu negocio, definidos y cotizados después de una conversación, no vendidos como paquete.",
+    },
     features: [
-      "Custom CRMs",
-      "Booking & scheduling tools",
-      "Internal dashboards",
-      "Business-specific applications",
+      { en: "Custom CRMs", es: "CRMs personalizados" },
+      { en: "Booking & scheduling tools", es: "Herramientas de reservas y citas" },
+      { en: "Internal dashboards", es: "Paneles internos" },
+      { en: "Business-specific applications", es: "Aplicaciones a la medida de tu negocio" },
     ],
-    tierNote: "Tier 4 — Let's Talk. Project-based pricing.",
+    tierNote: {
+      en: "Tier 4: Let's Talk. Project-based pricing.",
+      es: "Nivel 4: Hablemos. Precio por proyecto.",
+    },
     metaDescription:
-      "Custom CRMs, booking systems, and internal tools built for Tijuana businesses by Delta Solutions — project-based, scoped to what you need.",
+      "Custom CRMs, booking systems, and internal tools built for Tijuana businesses by Delta Solutions, project-based and scoped to what you need.",
   },
 ];
 

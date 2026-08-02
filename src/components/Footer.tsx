@@ -1,43 +1,73 @@
+"use client";
+
 import Link from "next/link";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
-import { site } from "@/data/site";
+import { site, siteCopy } from "@/data/site";
 import { services } from "@/data/services";
+import { useLanguage } from "@/lib/language-context";
+import { ui } from "@/data/ui-strings";
 
-const columns = [
-  {
-    heading: "What we bring to the table",
-    links: services.map((s) => ({ href: `/services/${s.slug}`, label: s.name })),
+const footerCopy = {
+  whatWeBring: { en: "What we bring to the table", es: "Lo que ofrecemos" },
+  company: { en: "Company", es: "Empresa" },
+  aboutMiguel: { en: "About Miguel", es: "Sobre Miguel" },
+  footerTagline: {
+    en: "A teammate for businesses in Tijuana, not another vendor billing you whether the phone rings or not.",
+    es: "Un compañero de equipo para negocios en Tijuana, no otro proveedor que te cobra suene o no el teléfono.",
   },
-  {
-    heading: "Company",
-    links: [
-      { href: "/about", label: "About Miguel" },
-      { href: "/how-it-works", label: "How It Works" },
-      { href: "/industries", label: "Industries We Serve" },
-      { href: "/case-studies", label: "Results" },
-      { href: "/faq", label: "FAQ" },
-    ],
-  },
-];
+  builtAndRun: { en: "Built and run by", es: "Construido y dirigido por" },
+  in: { en: "in", es: "en" },
+};
 
 export function Footer() {
+  const { lang } = useLanguage();
+
+  const columns = [
+    {
+      heading: footerCopy.whatWeBring[lang],
+      links: services.map((s) => ({ href: `/services/${s.slug}`, label: s.name })),
+    },
+    {
+      heading: footerCopy.company[lang],
+      links: [
+        { href: "/about", label: footerCopy.aboutMiguel[lang] },
+        { href: "/how-it-works", label: ui.nav.howItWorks[lang] },
+        { href: "/industries", label: ui.nav.industries[lang] },
+        { href: "/case-studies", label: ui.nav.results[lang] },
+        { href: "/faq", label: ui.nav.faq[lang] },
+      ],
+    },
+  ];
+
   return (
     <footer className="mt-24 bg-navy-950 text-white">
       <Container className="grid gap-12 py-16 lg:grid-cols-[1.2fr_1fr_1fr]">
         <div>
           <Logo theme="light" />
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/60">
-            {site.tagline} — a teammate for businesses in {site.city}, not another
-            vendor billing you whether the phone rings or not.
+            {siteCopy.tagline[lang]}. {footerCopy.footerTagline[lang]}
           </p>
           <div className="mt-6 flex gap-4 text-sm text-white/60">
-            <a href={site.social.facebook} className="hover:text-white">
-              Facebook
+            <a
+              href={`https://wa.me/${site.whatsapp.replace("+", "")}`}
+              className="hover:text-white"
+            >
+              WhatsApp
             </a>
-            <a href={site.social.instagram} className="hover:text-white">
-              Instagram
+            <a href={site.linkedin} className="hover:text-white">
+              LinkedIn
             </a>
+            {site.social.facebook && (
+              <a href={site.social.facebook} className="hover:text-white">
+                Facebook
+              </a>
+            )}
+            {site.social.instagram && (
+              <a href={site.social.instagram} className="hover:text-white">
+                Instagram
+              </a>
+            )}
           </div>
         </div>
 
@@ -60,8 +90,8 @@ export function Footer() {
       <div className="border-t border-white/10">
         <Container className="flex flex-col gap-3 py-6 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} {site.name}. Built and run by {site.founder} —{" "}
-            {site.city}, {site.region}.
+            © {new Date().getFullYear()} {site.name}. {footerCopy.builtAndRun[lang]}{" "}
+            {site.founder} {footerCopy.in[lang]} {site.city}, {site.region}.
           </p>
           <div className="flex gap-5">
             <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="hover:text-white">
