@@ -85,6 +85,12 @@ export function PricingContent() {
                   {tier.description[lang]}
                 </p>
 
+                {tier.note && (
+                  <p className="mt-3 rounded-lg bg-amber-100 px-3 py-2 text-xs font-medium text-amber-700">
+                    {tier.note[lang]}
+                  </p>
+                )}
+
                 <ul className="mt-6 space-y-2.5 text-sm">
                   {tier.features.map((f) => (
                     <li

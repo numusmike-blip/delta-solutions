@@ -9,6 +9,7 @@ export type PricingTier = {
   features: Bilingual[];
   bestFor: Bilingual[];
   commissionNote: Bilingual;
+  note?: Bilingual;
   highlighted?: boolean;
 };
 
@@ -28,6 +29,10 @@ export const pricingTiers: PricingTier[] = [
     description: {
       en: "The essentials: website, hosting, Google presence, and real tracking.",
       es: "Lo esencial: sitio web, hospedaje, presencia en Google y seguimiento real.",
+    },
+    note: {
+      en: "A starting point, best for your first 3 months. After that, your site needs more investment to keep growing.",
+      es: "Un punto de partida, ideal para tus primeros 3 meses. Después de eso, tu sitio necesita más inversión para seguir creciendo.",
     },
     features: [
       { en: "Website built + hosted", es: "Sitio web construido y hospedado" },
