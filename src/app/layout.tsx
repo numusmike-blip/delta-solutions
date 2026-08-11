@@ -21,11 +21,11 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL("https://deltasolutions.mx"),
   title: {
-    default: `${site.name} | Marketing & Business Tech for ${site.city} Businesses`,
+    default: `${site.name} | Marketing & Business Tech Team`,
     template: `%s | ${site.name}`,
   },
   description:
-    "Delta Solutions is a Tijuana-based marketing and business technology partner: websites, Google presence, and growth systems built on a pricing model where we only win when you do.",
+    "Delta Solutions is a marketing and business technology team: websites, Google presence, and growth systems built on a pricing model where we only win when you do.",
 };
 
 export default function RootLayout({

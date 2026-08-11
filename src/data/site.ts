@@ -6,7 +6,7 @@ export const site = {
   manifesto:
     "Delta Solutions isn't an agency. It's a teammate. Most marketing companies bill you whether your phone rings or not, and we don't think that's fair, to you or to us. We build your website, manage your Google presence, track every call, and put real skin in the game, because we're partners, not vendors.",
   signatureLine:
-    "Built and run by Miguel Flores. No account managers, no outsourced call centers. You work directly with the person invested in your results.",
+    "Built and run by a small, dedicated team. Miguel Flores is your main point of contact. No account managers, no outsourced call centers.",
   city: "Tijuana",
   region: "Baja California",
   country: "Mexico",
@@ -69,8 +69,8 @@ export const siteCopy = {
     es: "Delta Solutions no es una agencia. Es un compañero de equipo. La mayoría de las empresas de marketing te cobran suene o no tu teléfono, y no creemos que eso sea justo, ni para ti ni para nosotros. Construimos tu sitio web, administramos tu presencia en Google, rastreamos cada llamada, y ponemos algo real en juego, porque somos socios, no proveedores.",
   },
   signatureLine: {
-    en: "Built and run by Miguel Flores. No account managers, no outsourced call centers. You work directly with the person invested in your results.",
-    es: "Construido y dirigido por Miguel Flores. Sin gerentes de cuenta, sin call centers subcontratados. Trabajas directamente con la persona invertida en tus resultados.",
+    en: "Built and run by a small, dedicated team. Miguel Flores is your main point of contact. No account managers, no outsourced call centers.",
+    es: "Construido y dirigido por un equipo pequeño y dedicado. Miguel Flores es tu punto de contacto principal. Sin gerentes de cuenta, sin call centers subcontratados.",
   },
 } as const;
 

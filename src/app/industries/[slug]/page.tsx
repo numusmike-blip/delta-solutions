@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { industries, getIndustryBySlug } from "@/data/industries";
-import { site } from "@/data/site";
 import { IndustryDetailContent } from "./IndustryDetailContent";
 
 export function generateStaticParams() {
@@ -17,7 +16,7 @@ export async function generateMetadata({
   const industry = getIndustryBySlug(slug);
   if (!industry) return {};
   return {
-    title: `Marketing for ${industry.name.en} in ${site.city}`,
+    title: `Marketing for ${industry.name.en}`,
     description: industry.blurb.en,
   };
 }

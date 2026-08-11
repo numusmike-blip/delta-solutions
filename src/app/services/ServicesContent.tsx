@@ -4,17 +4,14 @@ import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { services } from "@/data/services";
-import { site } from "@/data/site";
 import { useLanguage } from "@/lib/language-context";
 import { ui } from "@/data/ui-strings";
 
 const copy = {
   title: { en: "What we bring to the table", es: "Lo que ofrecemos" },
   subtitle: {
-    en: (city: string) =>
-      `Not a cold list of services. Six pieces that work together, scaled to what your business in ${city} actually needs right now.`,
-    es: (city: string) =>
-      `No es una lista fría de servicios. Seis piezas que trabajan juntas, ajustadas a lo que tu negocio en ${city} realmente necesita ahora.`,
+    en: "Not a cold list of services. Six pieces that work together, scaled to what your business actually needs right now.",
+    es: "No es una lista fría de servicios. Seis piezas que trabajan juntas, ajustadas a lo que tu negocio realmente necesita ahora.",
   },
   ctaTitle: {
     en: "See how it all fits into a plan",
@@ -37,7 +34,7 @@ export function ServicesContent() {
           <h1 className="font-display text-4xl font-semibold sm:text-5xl">
             {copy.title[lang]}
           </h1>
-          <p className="mt-5 text-lg text-white/70">{copy.subtitle[lang](site.city)}</p>
+          <p className="mt-5 text-lg text-white/70">{copy.subtitle[lang]}</p>
         </Container>
       </section>
 

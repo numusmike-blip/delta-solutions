@@ -14,8 +14,8 @@ export const industries: Industry[] = [
     name: { en: "Auto Body Shops", es: "Talleres de Hojalatería y Pintura" },
     tierId: "delta-growth",
     blurb: {
-      en: "Tijuana has no shortage of body shops, and most of them are findable only if a customer already knows the name. We build a Google presence that catches the after-the-fender-bender search, track every call that comes from it, and keep your socials showing finished work.",
-      es: "En Tijuana no faltan talleres de hojalatería, y la mayoría solo se encuentran si el cliente ya conoce el nombre. Construimos una presencia en Google que capta la búsqueda justo después del choque, rastreamos cada llamada que llega de ahí, y mantenemos tus redes mostrando trabajos terminados.",
+      en: "There's no shortage of body shops out there, and most of them are findable only if a customer already knows the name. We build a Google presence that catches the after-the-fender-bender search, track every call that comes from it, and keep your socials showing finished work.",
+      es: "No faltan talleres de hojalatería por ahí, y la mayoría solo se encuentran si el cliente ya conoce el nombre. Construimos una presencia en Google que capta la búsqueda justo después del choque, rastreamos cada llamada que llega de ahí, y mantenemos tus redes mostrando trabajos terminados.",
     },
     relatedServices: ["delta-base", "delta-radar", "delta-social", "delta-studio"],
   },
@@ -24,8 +24,8 @@ export const industries: Industry[] = [
     name: { en: "Dentists", es: "Dentistas" },
     tierId: "delta-growth",
     blurb: {
-      en: "New-patient searches in Tijuana happen on Google before they happen anywhere else. We keep your Business Profile, reviews, and site working together so the next search for a dentist near you ends at your office.",
-      es: "Las búsquedas de pacientes nuevos en Tijuana empiezan en Google antes que en cualquier otro lado. Mantenemos tu perfil de negocio, reseñas y sitio trabajando juntos para que la próxima búsqueda de un dentista cerca termine en tu consultorio.",
+      en: "New-patient searches happen on Google before they happen anywhere else. We keep your Business Profile, reviews, and site working together so the next search for a dentist near you ends at your office.",
+      es: "Las búsquedas de pacientes nuevos empiezan en Google antes que en cualquier otro lado. Mantenemos tu perfil de negocio, reseñas y sitio trabajando juntos para que la próxima búsqueda de un dentista cerca termine en tu consultorio.",
     },
     relatedServices: ["delta-base", "delta-radar", "delta-social"],
   },
@@ -54,8 +54,8 @@ export const industries: Industry[] = [
     name: { en: "HVAC Companies", es: "Empresas de Aire Acondicionado y Calefacción" },
     tierId: "delta-growth",
     blurb: {
-      en: "Seasonal demand swings hard in Tijuana. We track call patterns by time and day so you can see the swings coming, and keep your Google presence sharp year-round, not just when it's busy.",
-      es: "La demanda estacional cambia mucho en Tijuana. Rastreamos patrones de llamadas por hora y día para que veas venir los cambios, y mantenemos tu presencia en Google fuerte todo el año, no solo cuando hay más trabajo.",
+      en: "Seasonal demand swings hard in this business. We track call patterns by time and day so you can see the swings coming, and keep your Google presence sharp year-round, not just when it's busy.",
+      es: "La demanda estacional cambia mucho en este negocio. Rastreamos patrones de llamadas por hora y día para que veas venir los cambios, y mantenemos tu presencia en Google fuerte todo el año, no solo cuando hay más trabajo.",
     },
     relatedServices: ["delta-base", "delta-radar", "delta-social"],
   },
@@ -174,8 +174,8 @@ export const industries: Industry[] = [
     name: { en: "Photographers", es: "Fotógrafos" },
     tierId: "delta-base",
     blurb: {
-      en: "Your portfolio is the pitch. We build the site that shows it off properly and the Google presence that gets you found by people searching for a photographer in Tijuana.",
-      es: "Tu portafolio es la venta. Construimos el sitio que lo muestra bien y la presencia en Google que te hace encontrable por quienes buscan un fotógrafo en Tijuana.",
+      en: "Your portfolio is the pitch. We build the site that shows it off properly and the Google presence that gets you found by people searching for a photographer near them.",
+      es: "Tu portafolio es la venta. Construimos el sitio que lo muestra bien y la presencia en Google que te hace encontrable por quienes buscan un fotógrafo cerca.",
     },
     relatedServices: ["delta-base"],
   },

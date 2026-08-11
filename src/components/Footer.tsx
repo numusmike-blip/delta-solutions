@@ -17,8 +17,10 @@ const footerCopy = {
     en: "A teammate for the businesses we work with, not another vendor billing you whether the phone rings or not.",
     es: "Un compañero de equipo para los negocios con los que trabajamos, no otro proveedor que te cobra suene o no el teléfono.",
   },
-  builtAndRun: { en: "Built and run by", es: "Construido y dirigido por" },
-  in: { en: "in", es: "en" },
+  builtAndRun: {
+    en: "Built and run by a dedicated team. Miguel Flores is your main point of contact.",
+    es: "Construido y dirigido por un equipo dedicado. Miguel Flores es tu punto de contacto principal.",
+  },
 };
 
 export function Footer() {
@@ -84,8 +86,7 @@ export function Footer() {
       <div className="border-t border-white/10">
         <Container className="flex flex-col gap-4 py-6 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} {site.name}. {footerCopy.builtAndRun[lang]}{" "}
-            {site.founder} {footerCopy.in[lang]} {site.city}, {site.region}.
+            © {new Date().getFullYear()} {site.name}. {footerCopy.builtAndRun[lang]}
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
             <PhoneNumbers className="flex-row gap-5 text-white/70" />

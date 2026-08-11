@@ -3,8 +3,8 @@ import { site } from "@/data/site";
 import { ContactContent } from "./ContactContent";
 
 export const metadata: Metadata = {
-  title: "Contact / Book a Call",
-  description: `Get in touch with Delta Solutions in ${site.city}. Book a call with founder ${site.founder} or send a message.`,
+  title: "Contact / Message Us",
+  description: `Get in touch with Delta Solutions. Message ${site.founder}, your main point of contact, or send a message.`,
 };
 
 export default function ContactPage() {

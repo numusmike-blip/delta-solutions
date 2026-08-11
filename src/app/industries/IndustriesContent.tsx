@@ -3,17 +3,14 @@
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { industries } from "@/data/industries";
-import { site } from "@/data/site";
 import { useLanguage } from "@/lib/language-context";
 import { ui } from "@/data/ui-strings";
 
 const copy = {
   title: { en: "Industries we serve", es: "Industrias que atendemos" },
   subtitle: {
-    en: (city: string) =>
-      `Every business in ${city} searches differently. Here's how Delta Solutions works with businesses like yours.`,
-    es: (city: string) =>
-      `Cada negocio en ${city} tiene búsquedas distintas. Así trabaja Delta Solutions con negocios como el tuyo.`,
+    en: "Every business searches differently. Here's how Delta Solutions works with businesses like yours.",
+    es: "Cada negocio tiene búsquedas distintas. Así trabaja Delta Solutions con negocios como el tuyo.",
   },
 };
 
@@ -27,7 +24,7 @@ export function IndustriesContent() {
           <h1 className="font-display text-4xl font-semibold sm:text-5xl">
             {copy.title[lang]}
           </h1>
-          <p className="mt-5 text-lg text-white/70">{copy.subtitle[lang](site.city)}</p>
+          <p className="mt-5 text-lg text-white/70">{copy.subtitle[lang]}</p>
         </Container>
       </section>
 

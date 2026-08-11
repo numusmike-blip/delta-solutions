@@ -9,8 +9,8 @@ import { useLanguage } from "@/lib/language-context";
 const copy = {
   title: { en: "Let's talk", es: "Hablemos" },
   subtitle: {
-    en: "Message us, text us, or send a message below. No sales team in between, just Miguel.",
-    es: "Escríbenos, mándanos un mensaje de texto, o manda un mensaje abajo. Sin equipo de ventas de por medio, solo Miguel.",
+    en: "Message us, text us, or send a message below. No sales team in between, just the team behind Delta Solutions.",
+    es: "Escríbenos, mándanos un mensaje de texto, o manda un mensaje abajo. Sin equipo de ventas de por medio, solo el equipo detrás de Delta Solutions.",
   },
   reachOutDirectly: { en: "Reach out directly", es: "Contáctanos directamente" },
   fastestWay: {
@@ -18,7 +18,6 @@ const copy = {
     es: "La forma más rápida de contactarnos. Respuestas reales, sin call center.",
   },
   email: { en: "Email", es: "Correo" },
-  basedIn: { en: "Based in", es: "Ubicado en" },
   sendMessage: { en: "Send a message", es: "Enviar un mensaje" },
   sendMessageBody: {
     en: "Tell us a bit about your business and what you're hoping to fix or grow.",
@@ -60,12 +59,6 @@ export function ContactContent() {
                 >
                   {site.email}
                 </a>
-              </div>
-              <div>
-                <p className="text-muted">{copy.basedIn[lang]}</p>
-                <p className="font-medium text-navy-900">
-                  {site.city}, {site.region}, {site.country}
-                </p>
               </div>
             </div>
           </div>

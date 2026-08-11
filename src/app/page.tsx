@@ -35,6 +35,7 @@ const trustSignals = [
 ];
 
 const copy = {
+  kicker: { en: "YOUR GROWTH TEAM", es: "TU EQUIPO DE CRECIMIENTO" },
   heroBody: {
     en: "Delta Solutions isn't a marketing agency you hire and hope for the best. It's a teammate with real skin in the game, for businesses tired of paying whether the phone rings or not.",
     es: "Delta Solutions no es una agencia de marketing que contratas y esperas lo mejor. Es un compañero de equipo con algo real en juego, para negocios cansados de pagar suene o no el teléfono.",
@@ -98,7 +99,7 @@ export default function Home() {
         />
         <Container className="relative py-24 sm:py-32">
           <p className="text-sm font-semibold uppercase tracking-widest text-amber-400">
-            {site.city}, {site.country}
+            {copy.kicker[lang]}
           </p>
           <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
             {siteCopy.tagline[lang]}.

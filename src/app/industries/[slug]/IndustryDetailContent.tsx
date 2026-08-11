@@ -6,7 +6,7 @@ import { Button } from "@/components/Button";
 import { industries, type Industry } from "@/data/industries";
 import { services } from "@/data/services";
 import { pricingTiers } from "@/data/pricing";
-import { site, whatsappHref } from "@/data/site";
+import { whatsappHref } from "@/data/site";
 import { useLanguage } from "@/lib/language-context";
 import { ui } from "@/data/ui-strings";
 
@@ -44,7 +44,7 @@ export function IndustryDetailContent({ industry }: { industry: Industry }) {
       <section className="bg-navy-950 py-20 text-white sm:py-24">
         <Container className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-widest text-amber-400">
-            {site.city} · {copy.industriesLabel[lang]}
+            {copy.industriesLabel[lang]}
           </p>
           <h1 className="mt-3 font-display text-4xl font-semibold sm:text-5xl">
             {copy.headingPrefix[lang]} {industry.name[lang]}
