@@ -55,7 +55,7 @@ export const pricingTiers: PricingTier[] = [
   {
     id: "delta-growth",
     name: "Delta Growth",
-    price: "$200",
+    price: "$300",
     priceNote: { en: "/mo", es: "/mes" },
     description: {
       en: "Everything in Base, plus the systems that turn visibility into calls.",
@@ -92,7 +92,7 @@ export const pricingTiers: PricingTier[] = [
   {
     id: "delta-partner",
     name: "Delta Partner",
-    price: "$400",
+    price: "$500",
     priceNote: { en: "/mo", es: "/mes" },
     description: {
       en: "Full attention: priority response, daily presence, unlimited design.",
