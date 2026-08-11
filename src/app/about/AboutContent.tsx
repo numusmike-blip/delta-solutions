@@ -41,8 +41,8 @@ const facts = [
 const copy = {
   aboutLabel: { en: "About", es: "Sobre" },
   subtitle: {
-    en: "Your main point of contact at Delta Solutions, backed by a team of experts. No account managers in between.",
-    es: "Tu punto de contacto principal en Delta Solutions, respaldado por un equipo de expertos. Sin gerentes de cuenta de por medio.",
+    en: "Your main point of contact at Delta Solutions, backed by years of experience in marketing, client operations, and sales and customer service. No account managers in between.",
+    es: "Tu punto de contacto principal en Delta Solutions, respaldado por años de experiencia en marketing, operaciones con clientes, y ventas y servicio al cliente. Sin gerentes de cuenta de por medio.",
   },
   linkedinButton: {
     en: "View full profile on LinkedIn",
