@@ -4,6 +4,7 @@ import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { useLanguage } from "@/lib/language-context";
 import { ui } from "@/data/ui-strings";
+import { whatsappHref } from "@/data/site";
 
 const steps = [
   {
@@ -128,7 +129,7 @@ export function HowItWorksContent() {
             </h2>
             <p className="mt-2 max-w-lg text-white/70">{copy.ctaBody[lang]}</p>
           </div>
-          <Button href="/contact">{ui.nav.bookACall[lang]}</Button>
+          <Button href={whatsappHref(lang)}>{ui.nav.messageUs[lang]}</Button>
         </Container>
       </section>
     </>

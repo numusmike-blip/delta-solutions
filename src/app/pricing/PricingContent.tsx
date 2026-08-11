@@ -12,6 +12,7 @@ import {
 } from "@/data/pricing";
 import { useLanguage } from "@/lib/language-context";
 import { ui } from "@/data/ui-strings";
+import { whatsappHref } from "@/data/site";
 
 const copy = {
   title: { en: "Pricing", es: "Precios" },
@@ -115,11 +116,11 @@ export function PricingContent() {
 
                 <div className="mt-auto pt-8">
                   <Button
-                    href="/contact"
+                    href={whatsappHref(lang)}
                     variant={tier.highlighted ? "primary" : "secondary"}
                     className="w-full"
                   >
-                    {ui.nav.bookACall[lang]}
+                    {ui.nav.messageUs[lang]}
                   </Button>
                 </div>
               </div>

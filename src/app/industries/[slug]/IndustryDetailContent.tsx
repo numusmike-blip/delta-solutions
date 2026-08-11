@@ -6,7 +6,7 @@ import { Button } from "@/components/Button";
 import { industries, type Industry } from "@/data/industries";
 import { services } from "@/data/services";
 import { pricingTiers } from "@/data/pricing";
-import { site } from "@/data/site";
+import { site, whatsappHref } from "@/data/site";
 import { useLanguage } from "@/lib/language-context";
 import { ui } from "@/data/ui-strings";
 
@@ -51,7 +51,7 @@ export function IndustryDetailContent({ industry }: { industry: Industry }) {
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-white/70">{industry.blurb[lang]}</p>
           <div className="mt-8">
-            <Button href="/contact">{ui.nav.bookACall[lang]}</Button>
+            <Button href={whatsappHref(lang)}>{ui.nav.messageUs[lang]}</Button>
           </div>
         </Container>
       </section>

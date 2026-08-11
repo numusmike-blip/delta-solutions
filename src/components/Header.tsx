@@ -4,10 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Container } from "./Container";
-import { Logo } from "./Logo";
+import { LogoImage } from "./Logo";
 import { Button } from "./Button";
 import { useLanguage } from "@/lib/language-context";
 import { ui } from "@/data/ui-strings";
+import { whatsappHref } from "@/data/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -20,7 +21,6 @@ export function Header() {
     { href: "/industries", label: ui.nav.industries[lang] },
     { href: "/how-it-works", label: ui.nav.howItWorks[lang] },
     { href: "/about", label: ui.nav.about[lang] },
-    { href: "/case-studies", label: ui.nav.results[lang] },
     { href: "/faq", label: ui.nav.faq[lang] },
   ];
 
@@ -28,7 +28,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border bg-white/90 backdrop-blur">
       <Container className="flex h-16 items-center justify-between">
         <Link href="/" onClick={() => setOpen(false)}>
-          <Logo />
+          <LogoImage />
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">
@@ -50,8 +50,8 @@ export function Header() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <LanguageToggle lang={lang} onToggle={toggle} />
-          <Button href="/contact" className="text-sm">
-            {ui.nav.bookACall[lang]}
+          <Button href={whatsappHref(lang)} className="text-sm">
+            {ui.nav.messageUs[lang]}
           </Button>
         </div>
 
@@ -90,8 +90,8 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <Button href="/contact" className="mt-2 w-full">
-              {ui.nav.bookACall[lang]}
+            <Button href={whatsappHref(lang)} className="mt-2 w-full">
+              {ui.nav.messageUs[lang]}
             </Button>
           </Container>
         </div>

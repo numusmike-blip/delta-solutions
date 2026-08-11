@@ -7,6 +7,7 @@ import { services, type Service } from "@/data/services";
 import { industries } from "@/data/industries";
 import { useLanguage } from "@/lib/language-context";
 import { ui } from "@/data/ui-strings";
+import { whatsappHref } from "@/data/site";
 
 const copy = {
   otherPieces: {
@@ -61,7 +62,7 @@ export function ServiceDetailContent({ service }: { service: Service }) {
             </ul>
 
             <div className="mt-10">
-              <Button href="/contact">{ui.nav.bookACall[lang]}</Button>
+              <Button href={whatsappHref(lang)}>{ui.nav.messageUs[lang]}</Button>
             </div>
           </div>
 

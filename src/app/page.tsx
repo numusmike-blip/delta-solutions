@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { FoundingCallout } from "@/components/FoundingBanner";
-import { site, siteCopy } from "@/data/site";
+import { site, siteCopy, whatsappHref } from "@/data/site";
 import { pricingTiers } from "@/data/pricing";
 import { industries } from "@/data/industries";
 import { useLanguage } from "@/lib/language-context";
@@ -36,8 +36,8 @@ const trustSignals = [
 
 const copy = {
   heroBody: {
-    en: "Delta Solutions isn't a marketing agency you hire and hope for the best. It's a teammate with real skin in the game, for businesses in Tijuana who are tired of paying whether the phone rings or not.",
-    es: "Delta Solutions no es una agencia de marketing que contratas y esperas lo mejor. Es un compañero de equipo con algo real en juego, para negocios en Tijuana cansados de pagar suene o no el teléfono.",
+    en: "Delta Solutions isn't a marketing agency you hire and hope for the best. It's a teammate with real skin in the game, for businesses tired of paying whether the phone rings or not.",
+    es: "Delta Solutions no es una agencia de marketing que contratas y esperas lo mejor. Es un compañero de equipo con algo real en juego, para negocios cansados de pagar suene o no el teléfono.",
   },
   threeWaysTitle: { en: "Three ways to work together", es: "Tres formas de trabajar juntos" },
   threeWaysBody: {
@@ -107,7 +107,7 @@ export default function Home() {
             {copy.heroBody[lang]}
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <Button href="/contact">{ui.nav.bookACall[lang]}</Button>
+            <Button href={whatsappHref(lang)}>{ui.nav.messageUs[lang]}</Button>
             <Button href="/pricing" variant="ghost" className="border-white/30 text-white hover:bg-white/10">
               {ui.common.seePricing[lang]}
             </Button>
@@ -256,7 +256,7 @@ export default function Home() {
             </h2>
             <p className="mt-2 max-w-lg text-white/70">{copy.finalCtaBody[lang]}</p>
           </div>
-          <Button href="/contact">{ui.nav.bookACall[lang]}</Button>
+          <Button href={whatsappHref(lang)}>{ui.nav.messageUs[lang]}</Button>
         </Container>
       </section>
     </>

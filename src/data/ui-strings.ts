@@ -8,7 +8,7 @@ export const ui = {
     about: { en: "About", es: "Nosotros" },
     results: { en: "Results", es: "Resultados" },
     faq: { en: "FAQ", es: "Preguntas" },
-    bookACall: { en: "Book a Call", es: "Agenda una Llamada" },
+    messageUs: { en: "Message Us", es: "Envíanos un Mensaje" },
   },
   common: {
     learnMore: { en: "Learn more →", es: "Saber más →" },

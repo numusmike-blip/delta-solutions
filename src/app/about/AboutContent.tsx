@@ -2,7 +2,7 @@
 
 import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
-import { site } from "@/data/site";
+import { site, whatsappHref } from "@/data/site";
 import { useLanguage } from "@/lib/language-context";
 import { ui } from "@/data/ui-strings";
 
@@ -124,7 +124,7 @@ export function AboutContent() {
             </h2>
             <p className="mt-2 max-w-lg text-muted">{copy.ctaBody[lang]}</p>
           </div>
-          <Button href="/contact">{ui.nav.bookACall[lang]}</Button>
+          <Button href={whatsappHref(lang)}>{ui.nav.messageUs[lang]}</Button>
         </Container>
       </section>
     </>

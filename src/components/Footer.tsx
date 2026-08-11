@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
+import { PhoneNumbers } from "./PhoneNumbers";
 import { site, siteCopy } from "@/data/site";
 import { services } from "@/data/services";
 import { useLanguage } from "@/lib/language-context";
@@ -13,8 +14,8 @@ const footerCopy = {
   company: { en: "Company", es: "Empresa" },
   aboutMiguel: { en: "About Miguel", es: "Sobre Miguel" },
   footerTagline: {
-    en: "A teammate for businesses in Tijuana, not another vendor billing you whether the phone rings or not.",
-    es: "Un compañero de equipo para negocios en Tijuana, no otro proveedor que te cobra suene o no el teléfono.",
+    en: "A teammate for the businesses we work with, not another vendor billing you whether the phone rings or not.",
+    es: "Un compañero de equipo para los negocios con los que trabajamos, no otro proveedor que te cobra suene o no el teléfono.",
   },
   builtAndRun: { en: "Built and run by", es: "Construido y dirigido por" },
   in: { en: "in", es: "en" },
@@ -34,7 +35,6 @@ export function Footer() {
         { href: "/about", label: footerCopy.aboutMiguel[lang] },
         { href: "/how-it-works", label: ui.nav.howItWorks[lang] },
         { href: "/industries", label: ui.nav.industries[lang] },
-        { href: "/case-studies", label: ui.nav.results[lang] },
         { href: "/faq", label: ui.nav.faq[lang] },
       ],
     },
@@ -49,12 +49,6 @@ export function Footer() {
             {siteCopy.tagline[lang]}. {footerCopy.footerTagline[lang]}
           </p>
           <div className="mt-6 flex gap-4 text-sm text-white/60">
-            <a
-              href={`https://wa.me/${site.whatsapp.replace("+", "")}`}
-              className="hover:text-white"
-            >
-              WhatsApp
-            </a>
             <a href={site.linkedin} className="hover:text-white">
               LinkedIn
             </a>
@@ -88,16 +82,14 @@ export function Footer() {
       </Container>
 
       <div className="border-t border-white/10">
-        <Container className="flex flex-col gap-3 py-6 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
+        <Container className="flex flex-col gap-4 py-6 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {site.name}. {footerCopy.builtAndRun[lang]}{" "}
             {site.founder} {footerCopy.in[lang]} {site.city}, {site.region}.
           </p>
-          <div className="flex gap-5">
-            <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="hover:text-white">
-              {site.phoneDisplay}
-            </a>
-            <a href={`mailto:${site.email}`} className="hover:text-white">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+            <PhoneNumbers className="flex-row gap-5 text-white/70" />
+            <a href={`mailto:${site.email}?cc=${site.emailCc}`} className="hover:text-white">
               {site.email}
             </a>
           </div>

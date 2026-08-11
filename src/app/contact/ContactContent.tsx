@@ -1,30 +1,22 @@
 "use client";
 
 import { Container } from "@/components/Container";
-import { Button } from "@/components/Button";
 import { ContactForm } from "@/components/ContactForm";
+import { PhoneNumbers } from "@/components/PhoneNumbers";
 import { site } from "@/data/site";
 import { useLanguage } from "@/lib/language-context";
 
 const copy = {
   title: { en: "Let's talk", es: "Hablemos" },
   subtitle: {
-    en: "Call, message on WhatsApp, book a call, or send a message below. No sales team in between, just Miguel.",
-    es: "Llama, escribe por WhatsApp, agenda una llamada, o manda un mensaje abajo. Sin equipo de ventas de por medio, solo Miguel.",
+    en: "Message us, text us, or send a message below. No sales team in between, just Miguel.",
+    es: "Escríbenos, mándanos un mensaje de texto, o manda un mensaje abajo. Sin equipo de ventas de por medio, solo Miguel.",
   },
   reachOutDirectly: { en: "Reach out directly", es: "Contáctanos directamente" },
   fastestWay: {
     en: "The fastest way to reach us. Real answers, no call center.",
     es: "La forma más rápida de contactarnos. Respuestas reales, sin call center.",
   },
-  call: { en: "Call", es: "Llamar" },
-  messageWhatsapp: { en: "Message on WhatsApp", es: "Escribir por WhatsApp" },
-  bookACallTitle: { en: "Book a call", es: "Agenda una llamada" },
-  bookACallBody: {
-    en: "Pick a time that works for you. 20 minutes, no pressure, just a real conversation.",
-    es: "Elige un horario que te funcione. 20 minutos, sin presión, solo una conversación real.",
-  },
-  openCalendar: { en: "Open booking calendar", es: "Abrir calendario de citas" },
   email: { en: "Email", es: "Correo" },
   basedIn: { en: "Based in", es: "Ubicado en" },
   sendMessage: { en: "Send a message", es: "Enviar un mensaje" },
@@ -56,34 +48,16 @@ export function ContactContent() {
                 {copy.reachOutDirectly[lang]}
               </h2>
               <p className="mt-2 text-sm text-white/70">{copy.fastestWay[lang]}</p>
-              <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-                <Button href={`tel:${site.phone}`} className="w-full sm:w-auto">
-                  {copy.call[lang]} {site.phoneDisplay}
-                </Button>
-                <Button
-                  href={`https://wa.me/${site.whatsapp.replace("+", "")}`}
-                  variant="secondary"
-                  className="w-full sm:w-auto"
-                >
-                  {copy.messageWhatsapp[lang]}
-                </Button>
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-border bg-white p-8">
-              <h2 className="font-display text-lg font-semibold text-navy-900">
-                {copy.bookACallTitle[lang]}
-              </h2>
-              <p className="mt-2 text-sm text-muted">{copy.bookACallBody[lang]}</p>
-              <Button href={site.bookingUrl} variant="secondary" className="mt-5">
-                {copy.openCalendar[lang]}
-              </Button>
+              <PhoneNumbers className="mt-5" />
             </div>
 
             <div className="space-y-4 text-sm">
               <div>
                 <p className="text-muted">{copy.email[lang]}</p>
-                <a href={`mailto:${site.email}`} className="font-medium text-navy-900">
+                <a
+                  href={`mailto:${site.email}?cc=${site.emailCc}`}
+                  className="font-medium text-navy-900"
+                >
                   {site.email}
                 </a>
               </div>

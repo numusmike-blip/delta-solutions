@@ -1,7 +1,32 @@
+import Image from "next/image";
+import { logoDataUri } from "@/data/logo-base64";
+
 type LogoProps = {
   theme?: "color" | "light";
   className?: string;
 };
+
+// Real logo image, used in the navbar. Embedded as a data URI (see
+// src/data/logo-base64.ts) rather than a /public file, and unoptimized since
+// Next's image loader can't process data URIs.
+export function LogoImage({ className }: { className?: string }) {
+  return (
+    <span className={`inline-flex items-center gap-2 ${className ?? ""}`}>
+      <Image
+        src={logoDataUri}
+        alt="Delta Solutions logo"
+        width={40}
+        height={36}
+        unoptimized
+        className="h-9 w-auto shrink-0"
+        priority
+      />
+      <span className="font-display text-lg font-semibold tracking-tight text-navy-900">
+        Delta Solutions
+      </span>
+    </span>
+  );
+}
 
 export function LogoMark({ theme = "color", className }: LogoProps) {
   const triangleColor = theme === "light" ? "#ffffff" : "var(--navy-900)";

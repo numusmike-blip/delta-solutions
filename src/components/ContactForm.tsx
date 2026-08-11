@@ -38,7 +38,7 @@ export function ContactForm() {
       `Name: ${name}\nBusiness: ${business}\nPhone: ${phone}\nEmail: ${email}\n\n${message}`
     );
 
-    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${site.email}?cc=${site.emailCc}&subject=${subject}&body=${body}`;
     setSent(true);
   }
 
@@ -71,7 +71,10 @@ export function ContactForm() {
       {sent && (
         <p className="text-sm text-muted">
           {copy.sentConfirmation[lang]}{" "}
-          <a href={`mailto:${site.email}`} className="font-medium text-navy-900 underline">
+          <a
+            href={`mailto:${site.email}?cc=${site.emailCc}`}
+            className="font-medium text-navy-900 underline"
+          >
             {site.email}
           </a>
           .

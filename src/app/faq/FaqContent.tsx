@@ -5,6 +5,7 @@ import { Button } from "@/components/Button";
 import { faqs } from "@/data/faq";
 import { useLanguage } from "@/lib/language-context";
 import { ui } from "@/data/ui-strings";
+import { whatsappHref } from "@/data/site";
 
 const copy = {
   title: { en: "Frequently asked questions", es: "Preguntas frecuentes" },
@@ -59,7 +60,7 @@ export function FaqContent() {
             </h2>
             <p className="mt-2 max-w-lg text-muted">{copy.askDirectly[lang]}</p>
           </div>
-          <Button href="/contact">{ui.nav.bookACall[lang]}</Button>
+          <Button href={whatsappHref(lang)}>{ui.nav.messageUs[lang]}</Button>
         </Container>
       </section>
     </>

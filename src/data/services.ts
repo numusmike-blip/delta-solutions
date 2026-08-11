@@ -37,7 +37,7 @@ export const services: Service[] = [
       },
     ],
     metaDescription:
-      "Website build, hosting, and Google Business Profile management for Tijuana businesses: the foundation of every Delta Solutions partnership.",
+      "Website build, hosting, and Google Business Profile management for the businesses we work with: the foundation of every Delta Solutions partnership.",
   },
   {
     slug: "delta-radar",
@@ -62,7 +62,7 @@ export const services: Service[] = [
       },
     ],
     metaDescription:
-      "Monthly SEO and competitive intelligence reports for Tijuana businesses. Know where you rank and what to do about it.",
+      "Monthly SEO and competitive intelligence reports for the businesses we work with. Know where you rank and what to do about it.",
   },
   {
     slug: "delta-social",
@@ -89,7 +89,7 @@ export const services: Service[] = [
       { en: "Stories included at the Partner tier", es: "Historias incluidas en el plan Partner" },
     ],
     metaDescription:
-      "Facebook and Instagram management for Tijuana businesses: consistent, on-brand social content without hiring in-house.",
+      "Facebook and Instagram management for the businesses we work with: consistent, on-brand social content without hiring in-house.",
   },
   {
     slug: "delta-studio",
@@ -113,7 +113,7 @@ export const services: Service[] = [
       },
     ],
     metaDescription:
-      "Posters, flyers, business cards, and branded design assets for Tijuana businesses, included as part of your Delta Solutions plan.",
+      "Posters, flyers, business cards, and branded design assets for the businesses we work with, included as part of your Delta Solutions plan.",
   },
   {
     slug: "delta-ads",
@@ -134,7 +134,7 @@ export const services: Service[] = [
       { en: "Introduced after your first 90 days", es: "Se activa después de tus primeros 90 días" },
     ],
     metaDescription:
-      "Google Ads and Local Services Ads management for Tijuana businesses, introduced once your organic foundation is proven. You control the budget.",
+      "Google Ads and Local Services Ads management for the businesses we work with, introduced once your organic foundation is proven. You control the budget.",
   },
   {
     slug: "delta-labs",
@@ -159,7 +159,7 @@ export const services: Service[] = [
       es: "Nivel 4: Hablemos. Precio por proyecto.",
     },
     metaDescription:
-      "Custom CRMs, booking systems, and internal tools built for Tijuana businesses by Delta Solutions, project-based and scoped to what you need.",
+      "Custom CRMs, booking systems, and internal tools built for the businesses we work with by Delta Solutions, project-based and scoped to what you need.",
   },
 ];
 
