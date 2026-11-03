@@ -6,8 +6,6 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      // The hidden Netlify form-detection page isn't content.
-      disallow: "/__forms.html",
     },
     sitemap: `${SITE_URL}/sitemap.xml`,
     host: SITE_URL,

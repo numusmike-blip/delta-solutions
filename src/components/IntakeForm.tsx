@@ -4,11 +4,7 @@ import { useRef, useState, type FormEvent } from "react";
 import { Loader2, CheckCircle2 } from "lucide-react";
 import { ContactActions } from "./ContactActions";
 import { useLanguage } from "@/lib/language-context";
-
-// Must match public/__forms.html, which is the copy Netlify reads at deploy time to
-// register the form. Every `name` below has to exist there too.
-const FORM_NAME = "intake";
-const SUBJECT = "New Delta Solutions inquiry";
+import { FORMSUBMIT_ENDPOINT, INTAKE_SUBJECT } from "@/config/forms";
 
 // Submitted values stay in English so notification emails read the same in both
 // languages; only the labels are translated. The `language` field says which page was used.
@@ -98,27 +94,40 @@ export function IntakeForm({ id = "intake" }: { id?: string }) {
       return;
     }
 
-    // FormData keeps repeated keys, so every checked "services" box is sent.
-    const body = new URLSearchParams();
-    data.forEach((value, key) => body.append(key, String(value)));
-
-    setStatus("sending");
-
-    // Netlify Forms only exist on the deployed site. Locally, log the payload and
-    // show the success state so the UI can still be tested.
-    if (process.env.NODE_ENV === "development") {
-      console.info("[IntakeForm] dev mode, not sent. Payload:", Object.fromEntries(body), body.getAll("services"));
-      setStatus("success");
+    if (!FORMSUBMIT_ENDPOINT) {
+      console.warn(
+        "[IntakeForm] NEXT_PUBLIC_FORMSUBMIT_ENDPOINT is not set, so the form can't be sent. " +
+          "Add it to .env.local (local) or the hosting environment variables, then rebuild."
+      );
+      setStatus("error");
       return;
     }
 
+    // Every field as a string; the checked "services" boxes become one comma-separated value.
+    const payload: Record<string, string> = {};
+    data.forEach((value, key) => {
+      if (key !== "services") payload[key] = String(value);
+    });
+    payload.services = data.getAll("services").map(String).join(", ");
+    payload.language = lang;
+    payload._subject = INTAKE_SUBJECT;
+    payload._template = "table";
+    payload._captcha = "false";
+    payload._honey = String(data.get("_honey") ?? "");
+
+    setStatus("sending");
+
     try {
-      const res = await fetch("/__forms.html", {
+      const res = await fetch(FORMSUBMIT_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: body.toString(),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error(`Form submission failed: ${res.status}`);
+      const result = (await res.json().catch(() => null)) as { success?: string | boolean } | null;
+      // FormSubmit answers { success: "true" } (a string) when the message was accepted.
+      if (!res.ok || String(result?.success) !== "true") {
+        throw new Error(`Form submission failed: ${res.status}`);
+      }
       setStatus("success");
     } catch {
       // Inputs are uncontrolled and the form stays mounted, so what they typed is kept.
@@ -176,8 +185,6 @@ export function IntakeForm({ id = "intake" }: { id?: string }) {
     <form
       id={id}
       ref={formRef}
-      name={FORM_NAME}
-      method="POST"
       onSubmit={handleSubmit}
       noValidate
       className="relative scroll-mt-24 overflow-hidden rounded-2xl border border-border bg-white p-6 sm:p-10"
@@ -185,15 +192,12 @@ export function IntakeForm({ id = "intake" }: { id?: string }) {
       <h2 className="font-display text-2xl font-semibold text-navy-900">{copy.title[lang]}</h2>
       <p className="mt-2 text-muted">{copy.intro[lang]}</p>
 
-      <input type="hidden" name="form-name" value={FORM_NAME} />
-      <input type="hidden" name="subject" value={SUBJECT} />
-      <input type="hidden" name="language" value={lang} />
-
-      {/* Honeypot: invisible to people and screen readers, not tabbable. Bots fill it in. */}
+      {/* Honeypot (FormSubmit's _honey): invisible to people and screen readers, not
+          tabbable. Bots fill it in, and FormSubmit drops any submission where it isn't empty. */}
       <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
         <label>
           Leave this empty
-          <input name="bot-field" tabIndex={-1} autoComplete="off" />
+          <input type="text" name="_honey" tabIndex={-1} autoComplete="off" defaultValue="" />
         </label>
       </div>
 
