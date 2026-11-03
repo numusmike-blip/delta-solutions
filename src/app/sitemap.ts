@@ -1,34 +1,32 @@
 import type { MetadataRoute } from "next";
 import { services } from "@/data/services";
 import { industries } from "@/data/industries";
-
-const BASE_URL = "https://deltasolutions.mx";
+import { SITE_URL, localizePath } from "@/lib/i18n";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = [
-    "",
+  const paths = [
+    "/",
     "/services",
-    "/pricing",
-    "/industries",
     "/how-it-works",
+    "/industries",
     "/about",
-    "/case-studies",
     "/faq",
     "/contact",
-  ].map((path) => ({
-    url: `${BASE_URL}${path}`,
-    lastModified: new Date(),
-  }));
+    ...services.map((s) => `/services/${s.slug}`),
+    ...industries.map((i) => `/industries/${i.slug}`),
+  ];
 
-  const serviceRoutes = services.map((s) => ({
-    url: `${BASE_URL}/services/${s.slug}`,
-    lastModified: new Date(),
-  }));
-
-  const industryRoutes = industries.map((i) => ({
-    url: `${BASE_URL}/industries/${i.slug}`,
-    lastModified: new Date(),
-  }));
-
-  return [...staticRoutes, ...serviceRoutes, ...industryRoutes];
+  // One entry per language, each listing its EN/ES alternates (hreflang).
+  return paths.flatMap((path) =>
+    (["en", "es"] as const).map((lang) => ({
+      url: `${SITE_URL}${localizePath(lang, path)}`,
+      lastModified: new Date(),
+      alternates: {
+        languages: {
+          en: `${SITE_URL}${localizePath("en", path)}`,
+          es: `${SITE_URL}${localizePath("es", path)}`,
+        },
+      },
+    }))
+  );
 }

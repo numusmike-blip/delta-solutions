@@ -1,58 +1,40 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { createContext, useContext, type ReactNode } from "react";
+import type { Language } from "./i18n";
+import type { ContactNumber } from "./contact-links";
 
-export type Language = "en" | "es";
+export type { Language } from "./i18n";
 
-type LanguageContextValue = {
+type SiteContextValue = {
   lang: Language;
-  setLang: (lang: Language) => void;
-  toggle: () => void;
+  // Numbers shown on this language's pages, main number first. Sent by the server.
+  numbers: ContactNumber[];
+  // Number used by the floating WhatsApp button.
+  floating: ContactNumber;
 };
 
-const LanguageContext = createContext<LanguageContextValue | null>(null);
+// The language comes from the URL (set by the (en) or (es) root layout), never from
+// the browser's language. English first, always.
+const SiteContext = createContext<SiteContextValue | null>(null);
 
-const STORAGE_KEY = "delta-solutions-lang";
+export function LanguageProvider({ children, ...value }: SiteContextValue & { children: ReactNode }) {
+  return <SiteContext.Provider value={value}>{children}</SiteContext.Provider>;
+}
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Language>("en");
-
-  useEffect(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
-    if (stored === "en" || stored === "es") {
-      setLangState(stored);
-      return;
-    }
-    const browserLang = window.navigator.language?.toLowerCase().startsWith("es")
-      ? "es"
-      : "en";
-    setLangState(browserLang);
-  }, []);
-
-  useEffect(() => {
-    document.documentElement.lang = lang;
-  }, [lang]);
-
-  function setLang(next: Language) {
-    setLangState(next);
-    window.localStorage.setItem(STORAGE_KEY, next);
-  }
-
-  function toggle() {
-    setLang(lang === "en" ? "es" : "en");
-  }
-
-  return (
-    <LanguageContext.Provider value={{ lang, setLang, toggle }}>
-      {children}
-    </LanguageContext.Provider>
-  );
+function useSite() {
+  const ctx = useContext(SiteContext);
+  if (!ctx) throw new Error("useLanguage must be used within a LanguageProvider");
+  return ctx;
 }
 
 export function useLanguage() {
-  const ctx = useContext(LanguageContext);
-  if (!ctx) throw new Error("useLanguage must be used within a LanguageProvider");
-  return ctx;
+  return { lang: useSite().lang };
+}
+
+export function useContactNumbers() {
+  const { numbers, floating } = useSite();
+  return { numbers, main: numbers[0], floating };
 }
 
 // Small helper for picking a bilingual field: pick(lang, { en: "...", es: "..." })

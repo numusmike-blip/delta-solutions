@@ -28,6 +28,26 @@ export function LogoImage({ className }: { className?: string }) {
   );
 }
 
+// The same navbar mark in white, for dark backgrounds (footer). /public/logo-white.png keeps
+// the original transparency with luminance-scaled alpha, so the facets and arrow stay distinct.
+export function LogoImageLight({ className }: { className?: string }) {
+  return (
+    <span className={`inline-flex items-center gap-2 ${className ?? ""}`}>
+      <Image
+        src="/logo-white.png"
+        alt="Delta Solutions"
+        width={40}
+        height={36}
+        className="h-9 w-auto shrink-0"
+      />
+      <span className="font-display text-lg font-semibold tracking-tight text-white">
+        Delta Solutions
+      </span>
+    </span>
+  );
+}
+
+// Outlined SVG mark previously used in the footer. No longer rendered; kept for reference.
 export function LogoMark({ theme = "color", className }: LogoProps) {
   const triangleColor = theme === "light" ? "#ffffff" : "var(--navy-900)";
   const arrowColor = theme === "light" ? "var(--amber-300)" : "var(--amber-500)";

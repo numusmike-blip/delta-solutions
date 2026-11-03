@@ -7,8 +7,7 @@ export type Service = {
   tagline: Bilingual;
   description: Bilingual;
   features: Bilingual[];
-  tierNote?: Bilingual;
-  metaDescription: string;
+  metaDescription: Bilingual;
 };
 
 export const services: Service[] = [
@@ -17,149 +16,130 @@ export const services: Service[] = [
     name: "Delta Base",
     shortName: "Base",
     tagline: {
-      en: "The foundation every business needs online.",
-      es: "La base que todo negocio necesita en línea.",
+      en: "Get found online, and look good when you are.",
+      es: "Que te encuentren en internet, y que te vean bien.",
     },
     description: {
-      en: "Your website, hosting, Google Business Profile, and the tracking that tells you what's actually working, all built and managed under an account you own.",
-      es: "Tu sitio web, hospedaje, perfil de Google Business y el seguimiento que te dice qué realmente está funcionando, todo construido y administrado bajo una cuenta que te pertenece.",
+      en: "We build your website, keep it running, and set up your Google Business Profile (the box with your hours, map and reviews that shows up when people search for you). We also set up simple tracking, so you can see how many people find you and call. Everything is created under your own email, so it's always yours.",
+      es: "Creamos tu sitio web, lo mantenemos funcionando y configuramos tu perfil de Google (el recuadro con tu horario, mapa y reseñas que aparece cuando te buscan). También dejamos listo un seguimiento sencillo para que veas cuántas personas te encuentran y te llaman. Todo se crea bajo tu propio correo, así que siempre es tuyo.",
     },
     features: [
-      { en: "Website built and hosted", es: "Sitio web construido y hospedado" },
+      { en: "A website built and kept running for you", es: "Un sitio web hecho y mantenido por nosotros" },
       {
-        en: "Google Business Profile management",
-        es: "Gestión de tu perfil de Google Business",
+        en: "Your Google Business Profile set up and kept up to date",
+        es: "Tu perfil de Google configurado y siempre actualizado",
       },
-      { en: "GA4 + Search Console tracking", es: "Seguimiento con GA4 + Search Console" },
       {
-        en: "Call tracking & recording available as an add-on",
-        es: "Rastreo y grabación de llamadas disponible como complemento",
+        en: "Tracking that shows how many people find you and visit your site",
+        es: "Métricas que muestran cuántas personas te encuentran y visitan tu sitio",
+      },
+      {
+        en: "Call tracking, so you know which calls came from your website and Google",
+        es: "Seguimiento de llamadas, para saber cuáles llegaron por tu sitio y por Google",
       },
     ],
-    metaDescription:
-      "Website build, hosting, and Google Business Profile management for the businesses we work with: the foundation of every Delta Solutions partnership.",
+    metaDescription: {
+      en: "A website, Google Business Profile and simple tracking for small businesses, built under your own email and run for you.",
+      es: "Sitio web, perfil de Google y métricas sencillas para negocios pequeños, creados bajo tu propio correo y manejados por nosotros.",
+    },
   },
   {
     slug: "delta-radar",
     name: "Delta Radar",
     shortName: "Radar",
     tagline: {
-      en: "SEO and market intelligence, translated into next steps.",
-      es: "SEO e inteligencia de mercado, traducidos en próximos pasos.",
+      en: "A monthly report that tells you what's working and what to do next.",
+      es: "Un reporte mensual que te dice qué funciona y qué hacer después.",
     },
     description: {
-      en: "A monthly report on where you rank, what your competitors are doing, and where the real opportunity is, with specific recommendations, not just numbers.",
-      es: "Un reporte mensual sobre dónde te posicionas, qué están haciendo tus competidores y dónde está la oportunidad real, con recomendaciones específicas, no solo números.",
+      en: "Every month we look at how your business shows up on Google, what nearby competitors are doing, and what happens to your calls. Then we explain it in plain words, with clear next steps. We also keep improving your site so more people find you on Google (that's what SEO means).",
+      es: "Cada mes revisamos cómo aparece tu negocio en Google, qué hacen tus competidores cercanos y qué pasa con tus llamadas. Luego te lo explicamos con palabras sencillas y con pasos claros. También seguimos mejorando tu sitio para que más gente te encuentre en Google (eso es el SEO).",
     },
     features: [
-      { en: "Monthly ranking report", es: "Reporte mensual de posicionamiento" },
-      { en: "Constant SEO improvement", es: "Mejora constante de SEO" },
-      { en: "Competitor tracking", es: "Seguimiento de la competencia" },
-      { en: "Opportunity analysis", es: "Análisis de oportunidades" },
+      { en: "A monthly report in plain words", es: "Un reporte mensual con palabras sencillas" },
       {
-        en: "Missed-call and conversion pattern insights",
-        es: "Análisis de llamadas perdidas y patrones de conversión",
+        en: "Ongoing work so more people find you on Google",
+        es: "Trabajo constante para que más gente te encuentre en Google",
       },
+      { en: "A look at what nearby competitors are doing", es: "Un vistazo a lo que hacen tus competidores cercanos" },
+      {
+        en: "Call feedback: missed calls, busy times vs. your staff, how long calls last",
+        es: "Análisis de llamadas: perdidas, horas pico vs. tu personal, cuánto duran",
+      },
+      { en: "What your reviews are saying, summed up", es: "Lo que dicen tus reseñas, en resumen" },
     ],
-    metaDescription:
-      "Monthly SEO and competitive intelligence reports for the businesses we work with. Know where you rank and what to do about it.",
-  },
-  {
-    slug: "delta-social",
-    name: "Delta Social",
-    shortName: "Social",
-    tagline: {
-      en: "Facebook and Instagram, actually managed.",
-      es: "Facebook e Instagram, realmente administrados.",
+    metaDescription: {
+      en: "A monthly report for small businesses: how you show up on Google, what happens to your calls, and what to do next, in plain words.",
+      es: "Un reporte mensual para negocios pequeños: cómo apareces en Google, qué pasa con tus llamadas y qué hacer después, con palabras sencillas.",
     },
-    description: {
-      en: "Consistent content that sounds like your business, not a template, posted on a schedule that matches your tier, from stories to full daily posting.",
-      es: "Contenido consistente que suena como tu negocio, no como una plantilla, publicado con la frecuencia que corresponde a tu plan, desde historias hasta publicaciones diarias.",
-    },
-    features: [
-      {
-        en: "Facebook & Instagram content management",
-        es: "Gestión de contenido en Facebook e Instagram",
-      },
-      { en: "Google Business Profile posts", es: "Publicaciones en Google Business" },
-      {
-        en: "Posting cadence scaled to your tier",
-        es: "Frecuencia de publicación según tu plan",
-      },
-      { en: "Stories included at the Partner tier", es: "Historias incluidas en el plan Partner" },
-    ],
-    metaDescription:
-      "Facebook and Instagram management for the businesses we work with: consistent, on-brand social content without hiring in-house.",
   },
   {
     slug: "delta-studio",
     name: "Delta Studio",
     shortName: "Studio",
     tagline: {
-      en: "The design work that makes everything else look sharp.",
-      es: "El trabajo de diseño que hace que todo lo demás se vea bien.",
+      en: "The design work that makes your business look sharp.",
+      es: "El diseño que hace que tu negocio se vea profesional.",
     },
     description: {
-      en: "Posters, flyers, business cards, and branded assets: the everyday design requests that shouldn't need a separate freelancer.",
-      es: "Carteles, volantes, tarjetas de presentación y material de marca: las solicitudes de diseño del día a día que no deberían requerir un freelancer aparte.",
+      en: "Flyers, posters, business cards and other branded pieces. The everyday design you need, without hunting for a separate designer.",
+      es: "Volantes, carteles, tarjetas de presentación y otro material con tu marca. El diseño del día a día que necesitas, sin buscar a un diseñador aparte.",
     },
     features: [
-      { en: "Posters & flyers", es: "Carteles y volantes" },
+      { en: "Flyers and posters", es: "Volantes y carteles" },
       { en: "Business cards", es: "Tarjetas de presentación" },
-      { en: "Basic branded assets", es: "Material de marca básico" },
-      {
-        en: "Unlimited basic requests at the Partner tier",
-        es: "Solicitudes básicas ilimitadas en el plan Partner",
-      },
+      { en: "Basic branded pieces that match your website", es: "Material de marca que combina con tu sitio web" },
     ],
-    metaDescription:
-      "Posters, flyers, business cards, and branded design assets for the businesses we work with, included as part of your Delta Solutions plan.",
+    metaDescription: {
+      en: "Flyers, posters, business cards and branded design for small businesses, done by the same team that runs your website.",
+      es: "Volantes, carteles, tarjetas y diseño de marca para negocios pequeños, hechos por el mismo equipo que maneja tu sitio web.",
+    },
   },
   {
     slug: "delta-ads",
     name: "Delta Ads",
     shortName: "Ads",
     tagline: {
-      en: "Paid search, once your foundation earns it.",
-      es: "Búsqueda paga, una vez que tu base lo justifique.",
+      en: "Google ads, once your foundation is ready for them.",
+      es: "Anuncios en Google, cuando tu base esté lista.",
     },
     description: {
-      en: "We recommend building your organic foundation for 90 days before turning on paid ads, so your money isn't wasted on an unproven funnel. Once you're ready, we manage Google Ads and Local Services Ads directly. The ad budget itself is entirely your call: you decide how much to invest, and we run the campaigns against it. Our management fee is separate from your ad spend, so every peso you put toward ads goes toward ads.",
-      es: "Recomendamos construir tu base orgánica durante 90 días antes de activar anuncios pagados, para que tu dinero no se desperdicie en un embudo no comprobado. Cuando estés listo, administramos Google Ads y Local Services Ads directamente. El presupuesto de los anuncios es completamente tu decisión: tú eliges cuánto invertir y nosotros manejamos las campañas con ese monto. Nuestra cuota de gestión es independiente de tu gasto en anuncios, así que cada peso que destines a anuncios se va a anuncios.",
+      en: "We start with at least 90 days of organic work (getting you found on Google without paying for ads) before we turn on any ads. That way your ads send people to a website that already works. When you're ready, we run your Google Ads and Local Services Ads for you, and you stay in control of how much goes into them.",
+      es: "Empezamos con al menos 90 días de trabajo orgánico (que te encuentren en Google sin pagar anuncios) antes de activar cualquier anuncio. Así tus anuncios llevan a la gente a un sitio que ya funciona. Cuando estés listo, manejamos tus anuncios de Google y de Local Services por ti, y tú decides cuánto destinar a ellos.",
     },
     features: [
-      { en: "Google Ads management", es: "Gestión de Google Ads" },
-      { en: "Local Services Ads management", es: "Gestión de Local Services Ads" },
-      { en: "You choose and control your ad budget", es: "Tú eliges y controlas tu presupuesto" },
-      { en: "Introduced after your first 90 days", es: "Se activa después de tus primeros 90 días" },
+      { en: "Google Ads run for you", es: "Anuncios de Google manejados por nosotros" },
+      { en: "Local Services Ads run for you", es: "Anuncios de Local Services manejados por nosotros" },
+      { en: "You decide how much goes into ads", es: "Tú decides cuánto destinar a los anuncios" },
+      { en: "Only after your first 90 days of organic work", es: "Solo después de tus primeros 90 días de trabajo orgánico" },
     ],
-    metaDescription:
-      "Google Ads and Local Services Ads management for the businesses we work with, introduced once your organic foundation is proven. You control the budget.",
+    metaDescription: {
+      en: "Google Ads and Local Services Ads for small businesses, started only after 90 days of organic work so your ads land on a site that works.",
+      es: "Anuncios de Google y Local Services para negocios pequeños, activados solo después de 90 días de trabajo orgánico.",
+    },
   },
   {
     slug: "delta-labs",
     name: "Delta Labs",
     shortName: "Labs",
     tagline: {
-      en: "Custom-built software for what off-the-shelf can't do.",
-      es: "Software a la medida para lo que las soluciones genéricas no pueden hacer.",
+      en: "Custom tools for the way your business actually works.",
+      es: "Herramientas a la medida de cómo funciona tu negocio.",
     },
     description: {
-      en: "CRMs, booking tools, internal dashboards, and business-specific applications, scoped and priced after a conversation, not sold as a package.",
-      es: "CRMs, herramientas de reservas, paneles internos y aplicaciones a la medida de tu negocio, definidos y cotizados después de una conversación, no vendidos como paquete.",
+      en: "Booking tools, simple customer lists (a CRM), dashboards and other custom tools that save you time. We talk first, understand how you work, and build only what you need.",
+      es: "Herramientas para agendar citas, listas sencillas de clientes (un CRM), paneles y otras herramientas a la medida que te ahorran tiempo. Primero platicamos, entendemos cómo trabajas y construimos solo lo que necesitas.",
     },
     features: [
-      { en: "Custom CRMs", es: "CRMs personalizados" },
-      { en: "Booking & scheduling tools", es: "Herramientas de reservas y citas" },
-      { en: "Internal dashboards", es: "Paneles internos" },
-      { en: "Business-specific applications", es: "Aplicaciones a la medida de tu negocio" },
+      { en: "Customer lists that keep track of every client (CRM)", es: "Listas de clientes para darle seguimiento a cada uno (CRM)" },
+      { en: "Booking and appointment tools", es: "Herramientas para agendar citas" },
+      { en: "Simple dashboards for your numbers", es: "Paneles sencillos con tus números" },
+      { en: "Tools built around your business", es: "Herramientas hechas para tu negocio" },
     ],
-    tierNote: {
-      en: "Tier 4: Let's Talk. Project-based pricing.",
-      es: "Nivel 4: Hablemos. Precio por proyecto.",
+    metaDescription: {
+      en: "Custom booking tools, customer lists and dashboards for small businesses, planned with you and built around how you work.",
+      es: "Herramientas a la medida para agendar, listas de clientes y paneles para negocios pequeños, planeados contigo.",
     },
-    metaDescription:
-      "Custom CRMs, booking systems, and internal tools built for the businesses we work with by Delta Solutions, project-based and scoped to what you need.",
   },
 ];
 

@@ -1,25 +1,21 @@
 "use client";
 
-import Link from "next/link";
 import { Container } from "./Container";
-import { Logo } from "./Logo";
-import { PhoneNumbers } from "./PhoneNumbers";
+import { LogoImageLight } from "./Logo";
+import { Link } from "./LocalizedLink";
+import { ContactActions } from "./ContactActions";
 import { site, siteCopy } from "@/data/site";
 import { services } from "@/data/services";
 import { useLanguage } from "@/lib/language-context";
 import { ui } from "@/data/ui-strings";
 
 const footerCopy = {
-  whatWeBring: { en: "What we bring to the table", es: "Lo que ofrecemos" },
+  whatWeDo: { en: "What we do", es: "Lo que hacemos" },
   company: { en: "Company", es: "Empresa" },
-  aboutMiguel: { en: "About Miguel", es: "Sobre Miguel" },
+  talkToUs: { en: "Call or text us", es: "Llámanos o escríbenos" },
   footerTagline: {
-    en: "A teammate for the businesses we work with, not another vendor billing you whether the phone rings or not.",
-    es: "Un compañero de equipo para los negocios con los que trabajamos, no otro proveedor que te cobra suene o no el teléfono.",
-  },
-  builtAndRun: {
-    en: "Built and run by a dedicated team. Miguel Flores is your main point of contact.",
-    es: "Construido y dirigido por un equipo dedicado. Miguel Flores es tu punto de contacto principal.",
+    en: "We help small businesses grow by handling the technology, so you can focus on running your business.",
+    es: "Ayudamos a los negocios pequeños a crecer encargándonos de la tecnología, para que tú te enfoques en tu negocio.",
   },
 };
 
@@ -28,43 +24,50 @@ export function Footer() {
 
   const columns = [
     {
-      heading: footerCopy.whatWeBring[lang],
+      heading: footerCopy.whatWeDo[lang],
       links: services.map((s) => ({ href: `/services/${s.slug}`, label: s.name })),
     },
     {
       heading: footerCopy.company[lang],
       links: [
-        { href: "/about", label: footerCopy.aboutMiguel[lang] },
+        { href: "/", label: ui.nav.home[lang] },
+        { href: "/services", label: ui.nav.services[lang] },
         { href: "/how-it-works", label: ui.nav.howItWorks[lang] },
         { href: "/industries", label: ui.nav.industries[lang] },
+        { href: "/about", label: ui.nav.about[lang] },
         { href: "/faq", label: ui.nav.faq[lang] },
+        { href: "/contact", label: ui.nav.contact[lang] },
       ],
     },
   ];
 
   return (
-    <footer className="mt-24 bg-navy-950 text-white">
-      <Container className="grid gap-12 py-16 lg:grid-cols-[1.2fr_1fr_1fr]">
+    // Extra bottom padding on mobile so the floating WhatsApp button never covers footer content.
+    <footer className="mt-24 bg-navy-950 pb-20 text-white sm:pb-0">
+      <Container className="grid gap-12 py-16 lg:grid-cols-[1.3fr_0.8fr_0.8fr]">
         <div>
-          <Logo theme="light" />
+          <Link href="/" aria-label={ui.nav.home[lang]} className="inline-block">
+            <LogoImageLight />
+          </Link>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/60">
             {siteCopy.tagline[lang]}. {footerCopy.footerTagline[lang]}
           </p>
-          <div className="mt-6 flex gap-4 text-sm text-white/60">
-            <a href={site.linkedin} className="hover:text-white">
-              LinkedIn
-            </a>
-            {site.social.facebook && (
-              <a href={site.social.facebook} className="hover:text-white">
-                Facebook
-              </a>
-            )}
-            {site.social.instagram && (
-              <a href={site.social.instagram} className="hover:text-white">
-                Instagram
-              </a>
-            )}
-          </div>
+          <h3 className="mt-8 text-sm font-semibold text-white/90">{footerCopy.talkToUs[lang]}</h3>
+          <ContactActions tone="dark" className="mt-4" />
+          {(site.social.facebook || site.social.instagram) && (
+            <div className="mt-6 flex gap-4 text-sm text-white/60">
+              {site.social.facebook && (
+                <a href={site.social.facebook} className="hover:text-white">
+                  Facebook
+                </a>
+              )}
+              {site.social.instagram && (
+                <a href={site.social.instagram} className="hover:text-white">
+                  Instagram
+                </a>
+              )}
+            </div>
+          )}
         </div>
 
         {columns.map((col) => (
@@ -84,16 +87,10 @@ export function Footer() {
       </Container>
 
       <div className="border-t border-white/10">
-        <Container className="flex flex-col gap-4 py-6 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
+        <Container className="py-6 text-xs text-white/50">
           <p>
-            © {new Date().getFullYear()} {site.name}. {footerCopy.builtAndRun[lang]}
+            © {new Date().getFullYear()} {site.name}. {siteCopy.signatureLine[lang]}
           </p>
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
-            <PhoneNumbers className="flex-row gap-5 text-white/70" />
-            <a href={`mailto:${site.email}?cc=${site.emailCc}`} className="hover:text-white">
-              {site.email}
-            </a>
-          </div>
         </Container>
       </div>
     </footer>

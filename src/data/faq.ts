@@ -1,5 +1,3 @@
-import { commissionFreeCallsPerMonth } from "./pricing";
-
 type Bilingual = { en: string; es: string };
 
 export type FaqItem = {
@@ -9,60 +7,50 @@ export type FaqItem = {
 
 export const faqs: FaqItem[] = [
   {
-    question: { en: "Is there a contract?", es: "¿Hay contrato?" },
+    question: { en: "How do we get started?", es: "¿Cómo empezamos?" },
     answer: {
-      en: "No. Delta Solutions is truly month to month. We recommend staying through month 3 so you get a full organic traffic report and can see the real trend, but nothing locks you in. You could leave day one and keep everything we built.",
-      es: "No. Delta Solutions es verdaderamente mes a mes. Recomendamos quedarte hasta el mes 3 para que obtengas un reporte completo de tráfico orgánico y veas la tendencia real, pero nada te ata. Podrías irte desde el primer día y quedarte con todo lo que construimos.",
+      en: "Call or text us and we'll talk through what fits your business. No forms, no tech talk. Just a normal conversation.",
+      es: "Llámanos o escríbenos y platicamos sobre lo que le conviene a tu negocio. Sin formularios, sin tecnicismos. Solo una conversación normal.",
     },
   },
   {
     question: {
-      en: 'What counts as a "qualified call"?',
-      es: '¿Qué cuenta como "llamada calificada"?',
+      en: "I'm not good with technology. Is that a problem?",
+      es: "No soy bueno con la tecnología. ¿Es un problema?",
     },
     answer: {
-      en: "A call that connects and lasts 60 seconds or longer. Short hang-ups, wrong numbers, and spam calls don't count. Every call is tracked and recorded so you can hear exactly what happened, not just take our word for it.",
-      es: "Una llamada que conecta y dura 60 segundos o más. Colgadas rápidas, números equivocados y llamadas de spam no cuentan. Cada llamada se rastrea y graba para que escuches exactamente qué pasó, no solo nuestra palabra.",
+      en: "Not at all. That's exactly who we built this for. We set everything up, we run it, and we explain what's happening in plain words. You don't need to learn anything new.",
+      es: "Para nada. Justo para eso creamos esto. Nosotros configuramos todo, lo manejamos y te explicamos lo que pasa con palabras sencillas. No tienes que aprender nada nuevo.",
     },
   },
   {
     question: {
-      en: "How does the commission actually work?",
-      es: "¿Cómo funciona realmente la comisión?",
+      en: "Who owns the website, the Google profile and the other accounts?",
+      es: "¿De quién es el sitio web, el perfil de Google y las demás cuentas?",
     },
     answer: {
-      en: `Your first ${commissionFreeCallsPerMonth} qualified calls each month are on us, no commission at all. After that, you pay a small amount per qualified call. The rate depends on your industry, because a call is worth a different amount to a landscaper than it is to a law firm. See the commission chart on the Pricing page for exact rates. Your rate is confirmed at onboarding.`,
-      es: `Tus primeras ${commissionFreeCallsPerMonth} llamadas calificadas de cada mes van por nuestra cuenta, sin comisión alguna. Después de eso, pagas una cantidad pequeña por cada llamada calificada. La tarifa depende de tu industria, porque una llamada vale algo distinto para un jardinero que para un despacho legal. Consulta la tabla de comisiones en la página de Precios para ver las tarifas exactas. Tu tarifa se confirma en el arranque.`,
+      en: "You do, always. Every account we build is created under an email address you own, either the one you already use or a new one we set up together. Your website, your Google profile, your data: all yours from day one.",
+      es: "Tuyos, siempre. Cada cuenta que creamos queda bajo un correo que te pertenece, ya sea el que ya usas o uno nuevo que configuramos juntos. Tu sitio web, tu perfil de Google, tus datos: todo es tuyo desde el primer día.",
     },
   },
   {
     question: {
-      en: "Who owns the website, the Google profile, the ad accounts?",
-      es: "¿Quién es dueño del sitio web, el perfil de Google, las cuentas de anuncios?",
+      en: "What happens if we stop working together?",
+      es: "¿Qué pasa si dejamos de trabajar juntos?",
     },
     answer: {
-      en: "You do, always. Every account we build lives under an email address you own, whether that's your existing business email or a dedicated one we set up for you. Domain, data, history, logins: all yours from day one. This isn't a courtesy. Miguel spent years in the BPO industry watching new clients arrive at agencies with no idea where their own hosting or account access even was, because it had all been set up under the agency's accounts. Delta Solutions is built the other way around on purpose.",
-      es: "Tú, siempre. Cada cuenta que creamos vive bajo un correo que te pertenece, ya sea tu correo de negocio actual o uno dedicado que configuramos para ti. Dominio, datos, historial, accesos: todo tuyo desde el primer día. Esto no es una cortesía. Miguel pasó años en la industria BPO viendo llegar clientes nuevos a agencias sin saber siquiera dónde estaba su propio hospedaje o acceso a cuentas, porque todo se había configurado bajo las cuentas de la agencia. Delta Solutions está construido al revés, a propósito.",
+      en: "You keep everything. Because every account is under your own email, there's nothing to move and nothing to start over. Your website, your reviews and your history stay with you.",
+      es: "Te quedas con todo. Como cada cuenta está bajo tu propio correo, no hay nada que mover ni que empezar de cero. Tu sitio, tus reseñas y tu historial se quedan contigo.",
     },
   },
   {
     question: {
-      en: "What happens if we decide to leave?",
-      es: "¿Qué pasa si decidimos irnos?",
+      en: "What's in the monthly report?",
+      es: "¿Qué incluye el reporte mensual?",
     },
     answer: {
-      en: "You keep everything. Because every account is built under your own email address, there's no migration, no starting over, no losing your search history or reviews. That's the point of the ownership structure. It's not a perk, it's proof we mean what we say about being invested in your business, not just billing it.",
-      es: "Te quedas con todo. Porque cada cuenta está construida bajo tu propio correo, no hay migración, no empiezas de cero, no pierdes tu historial de búsqueda ni tus reseñas. Ese es el punto de esta estructura de propiedad. No es un beneficio extra, es la prueba de que hablamos en serio sobre invertir en tu negocio, no solo cobrarte.",
-    },
-  },
-  {
-    question: {
-      en: "Do you work with more than one business in my industry?",
-      es: "¿Trabajan con más de un negocio en mi industria?",
-    },
-    answer: {
-      en: "We're selective about who we work with in the same industry and area, so our attention never gets split between businesses competing for the same customer. If we're already working with a business like yours nearby, we'll tell you upfront.",
-      es: "Somos selectivos sobre con quién trabajamos en la misma industria y zona, para que nuestra atención nunca se divida entre negocios que compiten por el mismo cliente. Si ya trabajamos con un negocio como el tuyo cerca, te lo diremos desde el principio.",
+      en: "How your business showed up on Google, how many people visited and called, and what happened to those calls: missed calls, busy times compared with your staffing, and how long calls last. We also sum up what your reviews are saying. Then we tell you, in plain words, what we'll do next.",
+      es: "Cómo apareció tu negocio en Google, cuántas personas te visitaron y te llamaron, y qué pasó con esas llamadas: llamadas perdidas, horas pico comparadas con tu personal y cuánto duran. También resumimos lo que dicen tus reseñas. Luego te decimos, con palabras sencillas, qué haremos después.",
     },
   },
   {
@@ -71,28 +59,28 @@ export const faqs: FaqItem[] = [
       es: "¿Por qué no empiezan con anuncios pagados?",
     },
     answer: {
-      en: "We recommend building your organic foundation for the first 90 days before turning on Delta Ads. Paid traffic sent to an unproven site or funnel just gets wasted. Organic-first means every ad dollar after that is working with data, not guesses. And when you do turn Delta Ads on, the ad budget is entirely your call: we manage the campaigns, you decide how much to invest.",
-      es: "Recomendamos construir tu base orgánica durante los primeros 90 días antes de activar Delta Ads. El tráfico pagado enviado a un sitio o embudo no comprobado simplemente se desperdicia. Empezar orgánico significa que cada dólar de anuncios después trabaja con datos, no con suposiciones. Y cuando actives Delta Ads, el presupuesto es completamente tu decisión: nosotros administramos las campañas, tú decides cuánto invertir.",
+      en: "Ads work best when they send people to a website and Google profile that already work. So we spend the first 90 days getting you found without ads. After that, if ads make sense for your business, we turn on Delta Ads and you decide how much goes into them.",
+      es: "Los anuncios funcionan mejor cuando llevan a la gente a un sitio y un perfil de Google que ya funcionan. Por eso dedicamos los primeros 90 días a que te encuentren sin anuncios. Después, si los anuncios tienen sentido para tu negocio, activamos Delta Ads y tú decides cuánto destinar.",
     },
   },
   {
     question: {
-      en: "What's Delta Radar, exactly?",
-      es: "¿Qué es exactamente Delta Radar?",
+      en: "What if I need something custom, like a booking system?",
+      es: "¿Y si necesito algo a la medida, como un sistema para agendar citas?",
     },
     answer: {
-      en: "A monthly report covering your rankings, what competitors nearby are doing, and where the real opportunity is, plus specific recommendations, like missed-call patterns or pricing questions your site isn't answering. We're not just generating the call. We want to help you close it.",
-      es: "Un reporte mensual que cubre tu posicionamiento, qué están haciendo los competidores cercanos, y dónde está la oportunidad real, más recomendaciones específicas, como patrones de llamadas perdidas o preguntas de precio que tu sitio no está respondiendo. No solo generamos la llamada. Queremos ayudarte a cerrarla.",
+      en: "That's Delta Labs: booking tools, customer lists, dashboards and other custom tools. We talk first, understand how your business works, and build only what you need.",
+      es: "Eso es Delta Labs: herramientas para agendar, listas de clientes, paneles y otras herramientas a la medida. Primero platicamos, entendemos cómo funciona tu negocio y construimos solo lo que necesitas.",
     },
   },
   {
     question: {
-      en: "What if I need something custom, like a booking system or CRM?",
-      es: "¿Qué pasa si necesito algo a la medida, como un sistema de reservas o un CRM?",
+      en: "Do you work with more than one business in my industry?",
+      es: "¿Trabajan con más de un negocio de mi mismo giro?",
     },
     answer: {
-      en: "That's Delta Labs: custom CRMs, booking tools, dashboards, and business-specific applications, scoped and priced after a conversation. It's not part of the three plans. It's project-based, built around exactly what you need.",
-      es: "Eso es Delta Labs: CRMs personalizados, herramientas de reservas, paneles y aplicaciones a la medida de tu negocio, definidos y cotizados después de una conversación. No es parte de los tres planes. Es por proyecto, construido alrededor de exactamente lo que necesitas.",
+      en: "We only work with one business per type of business in each area, so our attention is never split between competitors. If we already work with a business like yours nearby, we'll tell you upfront.",
+      es: "Solo trabajamos con un negocio de cada giro en cada zona, para que nuestra atención nunca se divida entre competidores. Si ya trabajamos con un negocio como el tuyo cerca, te lo decimos desde el principio.",
     },
   },
 ];
