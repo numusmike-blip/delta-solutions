@@ -8,7 +8,11 @@ export type ContactNumber = {
   e164: string;
   wa: string;
   flag: "us" | "mx";
-  // Set to false if this number is not on WhatsApp; its WhatsApp button disappears.
+  // Short label shown next to the number (key into ui.contact.labels).
+  label: "mainCall" | "textWhatsapp" | "mexico";
+  // Which buttons this number gets. Turn one off and its button disappears.
+  call: boolean;
+  sms: boolean;
   whatsapp: boolean;
 };
 

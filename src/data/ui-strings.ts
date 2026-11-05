@@ -13,8 +13,11 @@ export const ui = {
     call: { en: "Call us", es: "Llámanos" },
     text: { en: "Text us", es: "Escríbenos" },
     whatsapp: { en: "WhatsApp", es: "WhatsApp" },
-    mainNumber: { en: "Main number", es: "Número principal" },
-    mexicoNumber: { en: "Mexico number", es: "Número en México" },
+    labels: {
+      mainCall: { en: "Main number · Calls", es: "Número principal · Llamadas" },
+      textWhatsapp: { en: "Calls, text & WhatsApp", es: "Llamadas, mensajes y WhatsApp" },
+      mexico: { en: "Mexico number", es: "Número en México" },
+    },
   },
   common: {
     learnMore: { en: "Learn more →", es: "Saber más →" },
